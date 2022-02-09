@@ -89,14 +89,14 @@ true_theta = vertcat(vec(A), vec(B), vec(C), vec(D), vec(E), vec(G), vec(H), vec
 # ================================   beginning the training process    ======================================
 # doing learning process
 # curr_theta = 0.1 * np.random.randn(learner.n_theta)
-curr_theta = true_theta + 0.1 * np.random.randn(learner.n_theta)
+curr_theta = true_theta + .5 * np.random.randn(learner.n_theta)
 print('initial parameter relative error:', norm_2(curr_theta-true_theta)/norm_2(true_theta))
 mini_batch_size = 300
 loss_trace = []
 theta_trace = []
 optimizier = opt.Adam()
 optimizier.learning_rate = 1e-3
-for k in range(5000):
+for k in range(10000):
     # mini batch dataset
     shuffle_index = np.random.permutation(train_data_size)[0:mini_batch_size]
     x_mini_batch = train_x_batch[shuffle_index]

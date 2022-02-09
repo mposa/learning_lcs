@@ -255,7 +255,7 @@ class cartpole_learner2:
         self.C_fn = Function('C_fn', [self.theta], [self.C])
         self.lcp_offset_fn = Function('lcp_offset_fn', [self.theta], [self.lcp_offset])
 
-    def differetiable(self, gamma=1e2, epsilon=1e1):
+    def differetiable(self, gamma=1e2, epsilon=1e3):
 
         # define the dynamics loss
         self.x_next = SX.sym('x_next', self.n_state)
